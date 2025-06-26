@@ -1,6 +1,8 @@
 from agents import Agent, Runner
 from blaxel.openai import bl_model, bl_tools
 
+from markdown import markdown
+
 
 async def agent(input: str):
     tools = await bl_tools(["context7"])
@@ -26,4 +28,4 @@ Do not include any other text in your response.
     )
 
     result = await Runner.run(agent, input)
-    return result.final_output
+    return markdown(result.final_output)
