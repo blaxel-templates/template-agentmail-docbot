@@ -1,16 +1,17 @@
 apiVersion: blaxel.ai/v1alpha1
 kind: IntegrationConnection
 metadata:
-  name: blaxel-search-integration
+  name: context7-integration
 spec:
-  integration: blaxel-search
+  integration: context7
 ---
 apiVersion: blaxel.ai/v1alpha1
 kind: Function
 metadata:
-  name: blaxel-search
+  displayName: context7
+  name: context7
 spec:
   integrationConnections:
-    - blaxel-search-integration
+    - context7-integration
   runtime:
     type: mcp
