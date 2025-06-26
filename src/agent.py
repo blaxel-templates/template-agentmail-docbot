@@ -1,11 +1,8 @@
-from typing import AsyncGenerator
-
-from agents import Agent, RawResponsesStreamEvent, Runner
+from agents import Agent, Runner
 from blaxel.openai import bl_model, bl_tools
-from openai.types.responses import ResponseTextDeltaEvent
 
 
-async def agent(input: str) -> AsyncGenerator[str, None]:
+async def agent(input: str):
     tools = await bl_tools(["context7"])
     model = await bl_model("gpt-4o-mini")
 
@@ -27,9 +24,6 @@ Do not specify the email subject, only the email body.
 Do not include any other text in your response.
 """,
     )
-    result = Runner.run_streamed(agent, input)
-    async for event in result.stream_events():
-        if isinstance(event, RawResponsesStreamEvent) and isinstance(
-            event.data, ResponseTextDeltaEvent
-        ):
-            yield event.data.delta
+
+    result = await Runner.run(agent, input)
+    return result.final_output
