@@ -1,4 +1,12 @@
 type = "agent"
 
 functions = ["all"]
-models = ["sandbox-openai"]
+models = ["gpt-4o-mini"]
+
+[[triggers]]
+id = "http"
+type = "http"
+
+[triggers.configuration]
+path = "/blaxel-demo"
+authenticationType = "public"
