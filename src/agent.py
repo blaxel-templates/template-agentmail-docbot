@@ -22,6 +22,8 @@ First use the context7 resolve-library-id tool to resolve the relevant library i
 Then use the context7 get-library-docs tool to retrieve the relevant documentation.
 
 Finally, respond to the developer as if you are writing an email.
+In the email signature, refer to yourself as "AgentMail".
+
 Generate markdown and include relevant hyperlinks to the documentation.
 Do not specify the email subject, only the email body.
 Do not include any other text in your response.
@@ -35,7 +37,7 @@ Do not include any other text in your response.
     client.inboxes.messages.reply(
         inbox_id=message.inbox_id,
         message_id=message.message_id,
-        html=markdown(result.final_output),
+        html=markdown(result.final_output).replace("\n", ""),
     )
 
     return result.final_output
