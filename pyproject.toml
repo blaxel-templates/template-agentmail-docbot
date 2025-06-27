@@ -5,6 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "agentmail>=0.0.36",
     "asgi-correlation-id>=4.3.4",
     "blaxel[openai,telemetry]==0.2.0",
     "fastapi[standard]>=0.115.12",

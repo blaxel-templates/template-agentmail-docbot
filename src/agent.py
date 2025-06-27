@@ -1,10 +1,11 @@
 from agents import Agent, Runner
 from blaxel.openai import bl_model, bl_tools
 
+from agentmail import AgentMail, Message
 from markdown import markdown
 
 
-async def agent(input: str):
+async def agent(message: Message):
     tools = await bl_tools(["context7"])
     model = await bl_model("gpt-4o-mini")
 
@@ -27,5 +28,14 @@ Do not include any other text in your response.
 """,
     )
 
-    result = await Runner.run(agent, input)
-    return markdown(result.final_output)
+    result = await Runner.run(agent, message.model_dump_json())
+
+    client = AgentMail()
+
+    client.inboxes.messages.reply(
+        inbox_id=message.inbox_id,
+        message_id=message.message_id,
+        html=markdown(result.final_output),
+    )
+
+    return result.final_output
