@@ -1,7 +1,7 @@
 type = "agent"
 
 functions = ["all"]
-models = ["gpt-4o-mini"]
+models = ["all"]
 
 [[triggers]]
 id = "http"
