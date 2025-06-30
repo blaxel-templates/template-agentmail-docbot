@@ -9,15 +9,15 @@ client = AgentMail()
 
 inbox = client.inboxes.create(
     username="docbot",
-    display_name="Doc Bot",
-    client_id="doc-bot-inbox",
+    display_name="DocBot",
+    client_id="docbot-inbox",
 )
 
 client.webhooks.create(
-    url="https://run.blaxel.ai/agentmail/blaxel-demo",
+    url="https://run.blaxel.ai/agentmail/docbot",
     event_types=["message.received"],
     inbox_ids=[inbox.inbox_id],
-    client_id="doc-bot-webhook",
+    client_id="docbot-webhook",
 )
 
 

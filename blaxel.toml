@@ -8,5 +8,5 @@ id = "http"
 type = "http"
 
 [triggers.configuration]
-path = "/blaxel-demo"
+path = "/docbot"
 authenticationType = "public"
