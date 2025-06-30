@@ -7,7 +7,7 @@ resolution-markers = [
 
 [[package]]
 name = "agentmail"
-version = "0.0.36"
+version = "0.0.37"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -15,9 +15,9 @@ dependencies = [
     { name = "pydantic-core" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/95/95/db0533ac731182570ad768248dbb1271875a0257e16ff375b2eea1a5e286/agentmail-0.0.36.tar.gz", hash = "sha256:a599d56c08e6800a3ff74df4b4c09215391f91d134e23aedf814978b701de219", size = 45823 }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/ba/cc198dfb99b5d81812d179c8cb61d57e9836b917dd50c973502f8ccf1ed1/agentmail-0.0.37.tar.gz", hash = "sha256:2f6e809053e8450023f1f2ef885eefcf0ddc9a5b1553766ba903afd914c74542", size = 46137 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b0/2b/0e1f797ab16ddb4e1eedc1ef1b142760c7d6ce4e6b5d0bccd8f689346766/agentmail-0.0.36-py3-none-any.whl", hash = "sha256:6dd4c116afbc85fcde920b9b3575307ab1dfe4e15b3e4f12c1af50e5c0467cf3", size = 99025 },
+    { url = "https://files.pythonhosted.org/packages/f8/dc/8db73ffee13a336d8df5ee52206e59c4f2b74a788ec4848ce9e959653777/agentmail-0.0.37-py3-none-any.whl", hash = "sha256:d02a2dc64823e1a18d9828ff8d9d56c609d82588e4378422736587a6b9f85c80", size = 100189 },
 ]
 
 [[package]]
@@ -1383,7 +1383,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "agentmail", specifier = ">=0.0.36" },
+    { name = "agentmail", specifier = ">=0.0.37" },
     { name = "asgi-correlation-id", specifier = ">=4.3.4" },
     { name = "blaxel", extras = ["openai", "telemetry"], specifier = "==0.2.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },

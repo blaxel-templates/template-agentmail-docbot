@@ -5,6 +5,22 @@ from agentmail import AgentMail, Message
 from markdown import markdown
 
 
+client = AgentMail()
+
+inbox = client.inboxes.create(
+    username="docbot",
+    display_name="Doc Bot",
+    client_id="doc-bot-inbox",
+)
+
+client.webhooks.create(
+    url="https://run.blaxel.ai/agentmail/blaxel-demo",
+    event_types=["message.received"],
+    inbox_ids=[inbox.inbox_id],
+    client_id="doc-bot-webhook",
+)
+
+
 async def agent(message: Message):
     tools = [
         tool
@@ -37,8 +53,6 @@ Do not include any other text in your response.
     )
 
     result = await Runner.run(agent, message.model_dump_json())
-
-    client = AgentMail()
 
     client.inboxes.messages.reply(
         inbox_id=message.inbox_id,
