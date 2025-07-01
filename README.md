@@ -8,11 +8,11 @@ DocBot is an email assistant for developers. It is capable of answering technica
 
 To deploy DocBot using Blaxel, simply configure the following environment variables:
 
-```
-INBOX_USERNAME - a unique username for your DocBot's inbox
-BLAXEL_WORKSPACE - the name of your Blaxel workspace
-OPENAI_API_KEY - your OpenAI API key
-AGENTMAIL_API_KEY - your AgentMail API key
+```env
+INBOX_USERNAME=      # a unique username for your DocBot's inbox
+BLAXEL_WORKSPACE=    # the name of your Blaxel workspace
+OPENAI_API_KEY=      # your OpenAI API key
+AGENTMAIL_API_KEY=   # your AgentMail API key
 ```
 
 Then run `bl deploy` and email your DocBot.
