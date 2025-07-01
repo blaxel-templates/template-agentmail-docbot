@@ -33,7 +33,7 @@ async def agent(message: Message):
         for tool in await bl_tools(["agentmail", "context7"])
         if tool in ["get_thread", "resolve-library-id", "get-library-docs"]
     ]
-    model = await bl_model("gpt-4o-mini")
+    model = await bl_model("sandbox-openai")
 
     agent = Agent(
         name="docs-agent",
