@@ -20,7 +20,7 @@ inbox = client.inboxes.create(
 )
 
 client.webhooks.create(
-    url=f"https://run.blaxel.ai/{BLAXEL_WORKSPACE}/docbot",
+    url=f"https://run.blaxel.ai/{BLAXEL_WORKSPACE}/docbot/email",
     event_types=["message.received"],
     inbox_ids=[inbox.inbox_id],
     client_id="docbot-webhook",
