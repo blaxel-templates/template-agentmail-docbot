@@ -7,7 +7,7 @@ resolution-markers = [
 
 [[package]]
 name = "agentmail"
-version = "0.0.37"
+version = "0.0.38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -15,9 +15,9 @@ dependencies = [
     { name = "pydantic-core" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c9/ba/cc198dfb99b5d81812d179c8cb61d57e9836b917dd50c973502f8ccf1ed1/agentmail-0.0.37.tar.gz", hash = "sha256:2f6e809053e8450023f1f2ef885eefcf0ddc9a5b1553766ba903afd914c74542", size = 46137 }
+sdist = { url = "https://files.pythonhosted.org/packages/5b/24/1659f4665b8eea85505e6bcc3d82cc5cd8e60aacb82294dd4021638caccc/agentmail-0.0.38.tar.gz", hash = "sha256:d611254423b4087650d1d424dbf0eee7622ebe93c9e549dc9bfad44c2580bd29", size = 46114 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f8/dc/8db73ffee13a336d8df5ee52206e59c4f2b74a788ec4848ce9e959653777/agentmail-0.0.37-py3-none-any.whl", hash = "sha256:d02a2dc64823e1a18d9828ff8d9d56c609d82588e4378422736587a6b9f85c80", size = 100189 },
+    { url = "https://files.pythonhosted.org/packages/76/2f/ac8a06a12b18c14915b1b65b61f2cf5e146413dacd600e6dc674e2f9e969/agentmail-0.0.38-py3-none-any.whl", hash = "sha256:3dd01779bc019bcc0f5712c6400af1ef0006591bbd289e8d1e41c3a07a8bb97d", size = 100189 },
 ]
 
 [[package]]
@@ -233,6 +233,37 @@ sdist = { url = "https://files.pythonhosted.org/packages/b5/4a/263763cb2ba3816dd
 wheels = [
     { url = "https://files.pythonhosted.org/packages/68/1b/e0a87d256e40e8c888847551b20a017a6b98139178505dc7ffb96f04e954/dnspython-2.7.0-py3-none-any.whl", hash = "sha256:b4c34b7d10b51bcc3a5071e7b8dee77939f1e878477eeecc965e9835f63c6c86", size = 313632 },
 ]
+
+[[package]]
+name = "docbot"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "agentmail" },
+    { name = "asgi-correlation-id" },
+    { name = "blaxel", extra = ["openai", "telemetry"] },
+    { name = "fastapi", extra = ["standard"] },
+    { name = "markdown" },
+    { name = "rich" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "agentmail", specifier = ">=0.0.38" },
+    { name = "asgi-correlation-id", specifier = ">=4.3.4" },
+    { name = "blaxel", extras = ["openai", "telemetry"], specifier = "==0.2.0" },
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
+    { name = "markdown", specifier = ">=3.8.2" },
+    { name = "rich", specifier = ">=13.9.4" },
+]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.8.2" }]
 
 [[package]]
 name = "email-validator"
@@ -1362,37 +1393,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/04/1b/52b27f2e13ceedc79
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a0/4b/528ccf7a982216885a1ff4908e886b8fb5f19862d1962f56a3fce2435a70/starlette-0.46.1-py3-none-any.whl", hash = "sha256:77c74ed9d2720138b25875133f3a2dae6d854af2ec37dceb56aef370c1d8a227", size = 71995 },
 ]
-
-[[package]]
-name = "template-openai-py"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "agentmail" },
-    { name = "asgi-correlation-id" },
-    { name = "blaxel", extra = ["openai", "telemetry"] },
-    { name = "fastapi", extra = ["standard"] },
-    { name = "markdown" },
-    { name = "rich" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "agentmail", specifier = ">=0.0.37" },
-    { name = "asgi-correlation-id", specifier = ">=4.3.4" },
-    { name = "blaxel", extras = ["openai", "telemetry"], specifier = "==0.2.0" },
-    { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
-    { name = "markdown", specifier = ">=3.8.2" },
-    { name = "rich", specifier = ">=13.9.4" },
-]
-
-[package.metadata.requires-dev]
-dev = [{ name = "ruff", specifier = ">=0.8.2" }]
 
 [[package]]
 name = "tiktoken"
