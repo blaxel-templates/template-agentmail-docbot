@@ -1,30 +1,8 @@
-import os
-
 from agents import Agent, Runner
 from blaxel.openai import bl_model, bl_tools
 
 from agentmail import AgentMail, Message
 from markdown import markdown
-
-
-BLAXEL_WORKSPACE = os.getenv("BLAXEL_WORKSPACE")
-INBOX_USERNAME = os.getenv("INBOX_USERNAME")
-
-
-client = AgentMail()
-
-inbox = client.inboxes.create(
-    username=INBOX_USERNAME,
-    display_name="DocBot",
-    client_id="docbot-inbox",
-)
-
-client.webhooks.create(
-    url=f"https://run.blaxel.ai/{BLAXEL_WORKSPACE}/docbot/email",
-    event_types=["message.received"],
-    inbox_ids=[inbox.inbox_id],
-    client_id="docbot-webhook",
-)
 
 
 async def agent(message: Message):
@@ -59,6 +37,8 @@ Do not include any other text in your response.
     )
 
     result = await Runner.run(agent, message.model_dump_json())
+
+    client = AgentMail()
 
     client.inboxes.messages.reply(
         inbox_id=message.inbox_id,
