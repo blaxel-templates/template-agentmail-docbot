@@ -3,6 +3,10 @@ type = "agent"
 functions = ["all"]
 models = ["all"]
 
+[entrypoint]
+prod = ".venv/bin/python3 -m src"
+dev = "uv run uvicorn src.main:app --reload --port 1338 --host 0.0.0.0"
+
 [[triggers]]
 id = "http"
 type = "http"
@@ -10,3 +14,6 @@ type = "http"
 [triggers.configuration]
 path = "/docbot"
 authenticationType = "public"
+
+[env]
+INBOX_USERNAME = "${secrets.INBOX_USERNAME}"

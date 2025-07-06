@@ -5,7 +5,7 @@ metadata:
 spec:
   integration: agentmail
   secret:
-    agentmailApiKey: $AGENTMAIL_API_KEY
+    agentmailApiKey: ${secrets.AGENTMAIL_API_KEY}
 ---
 apiVersion: blaxel.ai/v1alpha1
 kind: Function
