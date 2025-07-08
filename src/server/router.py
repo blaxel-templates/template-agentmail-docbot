@@ -1,19 +1,19 @@
+import logging
 import os
 
+from agentmail import AgentMail, Message
+from blaxel.core import settings
 from blaxel.telemetry.span import SpanManager
-from fastapi import APIRouter, Request, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-
-from agentmail import AgentMail, Message
 from svix.webhooks import Webhook, WebhookVerificationError
 
-from agent import agent
+from ..agent import agent
 
-
-BLAXEL_WORKSPACE = os.getenv("BLAXEL_WORKSPACE")
 INBOX_USERNAME = os.getenv("INBOX_USERNAME")
 
+logger = logging.getLogger(__name__)
 
 client = AgentMail()
 
@@ -22,14 +22,16 @@ inbox = client.inboxes.create(
     display_name="DocBot",
     client_id="docbot-inbox",
 )
+logger.debug(f"Inbox: id={inbox.inbox_id} username={INBOX_USERNAME}")
 
 webhook = client.webhooks.create(
-    url=f"https://run.blaxel.ai/{BLAXEL_WORKSPACE}/docbot/email",
+    url=f"https://run.blaxel.ai/{settings.workspace}/docbot/email",
     event_types=["message.received"],
     inbox_ids=[inbox.inbox_id],
     client_id="docbot-webhook",
 )
 
+logger.debug(f"Webhook: id={webhook.webhook_id}, url={webhook.url}")
 
 router = APIRouter()
 
@@ -45,7 +47,7 @@ async def handle_request(request: RequestInput):
         async def response_stream():
             yield f"""This agent is made to be used with email, powered by AgentMail\n
 Configure with an API key from https://agentmail.to\n
-Then email the agent at {INBOX_USERNAME}@agentmail.to"""
+Then email the agent at {inbox.inbox_id}"""
 
         return StreamingResponse(response_stream(), media_type="text/event-stream")
 
