@@ -1,7 +1,7 @@
 # Blaxel DocBot - AgentMail Email Assistant
 
 <p align="center">
-  <img src="https://blaxel.ai/logo.png" alt="Blaxel" width="200"/>
+  <img style="border-radius:10px" src=".github/assets/cover.png" alt="AgentMail x Blaxel" width="90%"/>
 </p>
 
 <div align="center">
