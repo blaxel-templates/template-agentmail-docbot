@@ -1,4 +1,4 @@
-# Blaxel DocBot - AgentMail Email Assistant
+# Email Assistant - AgentMail
 
 <p align="center">
   <img style="border-radius:10px" src=".github/assets/cover.png" alt="AgentMail x Blaxel" width="90%"/>
@@ -13,7 +13,9 @@
 
 </div>
 
-DocBot is an intelligent email assistant designed for developers. It answers technical queries based on up-to-date documentation, making it an invaluable tool for development teams. You can email our demo instance at `docbot@agentmail.to`.
+DocBot is an intelligent email assistant designed for developers. It answers technical queries based on up-to-date documentation, making it an invaluable tool for development teams. You can email our demo instance at `docbot@agentmail.to`. 
+
+This templates shows how to integrate agentic inbox provider AgentMail with Blaxel to create a customer success agent that autonomously handles technical questions via email (inbound and outbound).
 
 ## 📑 Table of Contents
 
