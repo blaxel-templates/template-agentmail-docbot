@@ -16,4 +16,5 @@ path = "/docbot"
 authenticationType = "public"
 
 [env]
-INBOX_USERNAME = "${secrets.INBOX_USERNAME}"
+INBOX_USERNAME = "$INBOX_USERNAME"
+AGENTMAIL_API_KEY = "${secrets.AGENTMAIL_API_KEY}"
