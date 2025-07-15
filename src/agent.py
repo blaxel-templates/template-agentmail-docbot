@@ -1,7 +1,6 @@
+from agentmail import AgentMail, Message
 from agents import Agent, Runner
 from blaxel.openai import bl_model, bl_tools
-
-from agentmail import AgentMail, Message
 from markdown import markdown
 
 
@@ -9,7 +8,7 @@ async def agent(message: Message):
     tools = [
         tool
         for tool in await bl_tools(["agentmail", "context7"])
-        if tool in ["get_thread", "resolve-library-id", "get-library-docs"]
+        if tool.name in ["get_thread", "resolve-library-id", "get-library-docs"]
     ]
     model = await bl_model("sandbox-openai")
 
