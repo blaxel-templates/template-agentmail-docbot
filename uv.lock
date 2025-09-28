@@ -258,7 +258,7 @@ dev = [
 requires-dist = [
     { name = "agentmail", specifier = ">=0.0.38" },
     { name = "asgi-correlation-id", specifier = ">=4.3.4" },
-    { name = "blaxel", extras = ["openai", "telemetry"], specifier = "==0.2.15" },
+    { name = "blaxel", extras = ["openai", "telemetry"], specifier = "==0.2.19" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.12" },
     { name = "markdown", specifier = ">=3.8.2" },
     { name = "rich", specifier = ">=13.9.4" },
