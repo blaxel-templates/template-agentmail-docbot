@@ -49,7 +49,16 @@ async def handle_request(request: RequestInput):
 Configure with an API key from https://agentmail.to\n
 Then email the agent at {inbox.inbox_id}"""
 
-        return StreamingResponse(response_stream(), media_type="text/event-stream")
+        # Headers to disable proxy/CDN buffering (CloudFront, nginx, etc.)
+        return StreamingResponse(
+            response_stream(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-cache, no-transform",
+                "X-Accel-Buffering": "no",
+                "Connection": "keep-alive",
+            },
+        )
 
 
 class EmailInput(BaseModel):
