@@ -12,10 +12,11 @@ from svix.webhooks import Webhook, WebhookVerificationError
 from ..agent import agent
 
 INBOX_USERNAME = os.getenv("INBOX_USERNAME")
+AGENTMAIL_API_KEY = os.getenv("AGENTMAIL_API_KEY")
 
 logger = logging.getLogger(__name__)
 
-client = AgentMail()
+client = AgentMail(api_key=AGENTMAIL_API_KEY)
 
 inbox = client.inboxes.create(
     username=INBOX_USERNAME,
